@@ -42,6 +42,7 @@ pipeline {
         }
         stage('OWASP FS SCAN') {
             steps {
+                echo 'OWASP scan placeholder'  // Placeholder to avoid empty steps block error
                 // Uncomment and modify the following lines as needed for OWASP scanning
                 // dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit -n', odcInstallation: 'DP-Check'
                 // dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
@@ -86,6 +87,7 @@ pipeline {
     }
     post {
         always {
+            echo 'Post-build actions placeholder'  // Placeholder to avoid empty always block error
             // Uncomment to enable email notifications
             // emailext attachLog: true,
             //     subject: "'${currentBuild.result}'",
