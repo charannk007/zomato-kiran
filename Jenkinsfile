@@ -68,17 +68,17 @@ pipeline {
                 }
             }
         }
-        stage('Docker Scout Image') {
-            steps {
-                script {
-                    withDockerRegistry(credentialsId: 'docker') {
-                        sh 'docker-scout quickview nkcharan/zomato:latest'
-                        sh 'docker-scout cves nkcharan/zomato:latest'
-                        sh 'docker-scout recommendations nkcharan/zomato:latest'
-                    }
-                }
-            }
-        }
+        // stage('Docker Scout Image') {
+        //     steps {
+        //         script {
+        //             withDockerRegistry(credentialsId: 'docker') {
+        //                 sh 'docker-scout quickview nkcharan/zomato:latest'
+        //                 sh 'docker-scout cves nkcharan/zomato:latest'
+        //                 sh 'docker-scout recommendations nkcharan/zomato:latest'
+        //             }
+        //         }
+        //     }
+        // }
         stage ("Deploy to Container") {
             steps {
                 sh 'docker run -d --name zomato -p 3000:3000 nkcharan/zomato:latest'
